@@ -1,0 +1,197 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+input[type="time"], .field input[type="number"]::-webkit-inner-spin-button,
+input[type="time"], .field input[type="number"]::-webkit-outer-spin-button
+{
+  -webkit-appearance: none;
+  margin: 0;
+}
+html, body {
+  height: 100%;
+  width: 100%;
+  min-height: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+.content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  -webkit-tap-highlight-color: transparent;
+}
+.leftnav, .preview {
+  position: relative;
+  height: 100%;
+  user-select: none;
+}
+.leftnav {
+  flex-direction: column;
+  min-width: 200px;
+  width: 250px;
+  max-width: 500px;
+  display: flex;
+  background-color: #deebde;
+}
+.sash {
+  background-color: transparent;
+  cursor: e-resize;
+  right: 0;
+  width: 4px;
+  height: 100%;
+  top: 0;
+  position: absolute;
+  transition: background 0.1s ease-in-out;
+}
+.sash:hover {
+  background-color: #8e2aeb;
+}
+.prefix {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 22px 11px;
+}
+.pro {
+  border-radius: 4px;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+}
+.pro img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.user {
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.user strong {
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 14px;
+  font-weight: 600;
+}
+ul {
+  list-style: none;
+  padding: 11px;
+}
+ul a {
+  text-decoration: none;
+  font-weight: 500;
+}
+ul a:hover {
+  opacity: 0.9;
+}
+ul li {
+  margin: 22px 11px;
+}
+.preview {
+  padding: 33px 22px 22px 22px;
+  flex: 1;
+  overflow-x: hidden;
+}
+.form-container form {
+  width: 100%;
+  max-width: 500px;
+}
+form input[type="text"], form select, textarea, .field input[type="time"], .field input[type="number"] {
+  width: 100%;
+}
+.field {
+  position: relative;
+  column-gap: 8px;
+  display: flex;
+  margin: 11px 0;
+  align-items: flex-end;
+}
+.field input[type="text"], .field button, .field input[type="time"], .field input[type="number"], .field select, textarea {
+  border-radius: 2px;
+  height: 30px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #ccc;
+}
+.field select {
+  text-transform: uppercase;
+}
+.field button {
+  background-color: #8e2aeb;
+  border-bottom: none;
+  cursor: pointer;
+  padding: 0 22px;
+  margin-top: 25px;
+  color: #fff;
+  font-family: inherit;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.field input[type="radio"] {
+  position: absolute;
+  margin-bottom: 8px;
+}
+.field input[type="text"], .field input[type="time"], .field input[type="number"] {
+  padding-left: 22px;
+}
+button:hover {
+  opacity: 0.8;
+}
+textarea {
+  border: 1px solid #ccc;
+  resize: none;
+  padding: 8px;
+  height: auto;
+}
+.status {
+  font-size: 14px;
+  margin: 11px 0;
+}
+.error {
+  color: #ec2b2b;
+}
+.success {
+  color: #07cc07;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+}
+table span {
+  color: #567c92;
+}
+table td {
+  font-size: 14px;
+  padding: 6px 8px;
+  font-weight: 500;
+}
+.center {
+  text-align: center;
+}
+.space-between span {
+  float: left;
+}
+.space-between div {
+  float: right;
+}
+.header {
+  text-transform: uppercase;
+  color: #ffffff;
+  background-color: #aecf53;
+}
+.mrg-0 {
+  font-size: 12px;
+  margin: 0;
+  padding: 2px 4px;
+}
+.border {
+  border: 1px solid #cccaca;
+}

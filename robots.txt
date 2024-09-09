@@ -1,0 +1,13 @@
+User-agent:*
+Disallow: /admin/
+Disallow: /assets/
+Disallow: /connection/
+Disallow: /data/
+Disallow: /database/
+Disallow: /dist/
+Disallow: /library/
+Disallow: /vendor/
+Disallow: .env
+Disallow: composer.json
+Disallow: composer.lock
+Disallow: manifest.json

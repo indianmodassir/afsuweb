@@ -1,0 +1,116 @@
+{
+    "packages": [
+        {
+            "name": "shahzadamodassir/path",
+            "version": "1.2.0",
+            "version_normalized": "1.2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/javercel/path.git",
+                "reference": "9559bf535a6c3cbc407c54efb0c908436bc7b0e6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/javercel/path/zipball/9559bf535a6c3cbc407c54efb0c908436bc7b0e6",
+                "reference": "9559bf535a6c3cbc407c54efb0c908436bc7b0e6",
+                "shasum": ""
+            },
+            "time": "2024-09-01T06:12:00+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Path\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Shahzada Modassir",
+                    "email": "codingmodassir@gmail.com",
+                    "homepage": "https://github.com/shahzadamodassir"
+                },
+                {
+                    "name": "Shahzadi Afsara",
+                    "email": "shahzadiafsara@gmail.com",
+                    "homepage": "https://github.com/javercel"
+                }
+            ],
+            "description": "Help with handling or manipulating file and directory path",
+            "keywords": [
+                "path"
+            ],
+            "support": {
+                "issues": "https://github.com/javercel/path/issues",
+                "source": "https://github.com/javercel/path/tree/1.2.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/shahzadamodassir",
+                    "type": "Github"
+                }
+            ],
+            "install-path": "../shahzadamodassir/path"
+        },
+        {
+            "name": "shahzadamodassir/pointenv",
+            "version": "1.0.3",
+            "version_normalized": "1.0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/javercel/pointenv.git",
+                "reference": "0a34f2bdf170155377f25ddc9068018eea2a69a7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/javercel/pointenv/zipball/0a34f2bdf170155377f25ddc9068018eea2a69a7",
+                "reference": "0a34f2bdf170155377f25ddc9068018eea2a69a7",
+                "shasum": ""
+            },
+            "require": {
+                "shahzadamodassir/path": "*"
+            },
+            "time": "2024-09-03T05:34:15+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Pointenv\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Shahzada Modassir",
+                    "email": "codingmodassir@gmail.com",
+                    "homepage": "https://github.com/shahzadamodassir"
+                }
+            ],
+            "description": "Loads environment variables from `.env` to `getenv()`, `$_ENV` and `$_SERVER` automatically.",
+            "keywords": [
+                "dotenv",
+                "env",
+                "pointenv"
+            ],
+            "support": {
+                "issues": "https://github.com/javercel/pointenv/issues",
+                "source": "https://github.com/javercel/pointenv/tree/1.0.3"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/shahzadamodassir",
+                    "type": "Github"
+                }
+            ],
+            "install-path": "../shahzadamodassir/pointenv"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}
