@@ -84,6 +84,31 @@ function checks($conn, $exports) {
 
 checks($conn, $exports);
 
+function setDivision($subjects, $total) {
+    $subjects = array_diff($subjects, ["0"]);
+    $fullmark = 100;
+    $passing  = 30;
+    $maxvalue = count($subjects) * $fullmark;
+
+    $top    = $maxvalue * 95 / $fullmark;
+    $first  = $maxvalue * 60 / $fullmark;
+    $second = $maxvalue * 30 / $fullmark;
+    $third  = $second - 1;
+
+    if ($total >= $top) {
+        return "1vip";
+    }
+    else if ($total >= $first) {
+        return "1st";
+    }
+    else if ($total >= $second) {
+        return "2nd";
+    }
+    else if ($total <= $third) {
+        return "3rd";
+    }
+};
+
 $stmt = $conn->prepare("SELECT * FROM `users` WHERE `rollcode` = ?");
 $stmt->execute([$rollcode]);
 if ($stmt->rowCount() > 0) {
@@ -100,9 +125,10 @@ if ($stmt->rowCount() > 0) {
   $UID               = $data["uid"];
   $present           = $data["present"];
   $total             = ($history + $geography + $economics + $political_science + $urdu + $hindi);
+  $division          = setDivision([$hindi, $urdu, $history, $geography, $political_science], $total);
 
   if ($mt_rollno === $rollno) {
-    $exports["data"] = result($hindi, $urdu, $history, $geography, $political_science, $economics, $username, $dob, $UID, $rollcode, $rollno, $total, '1st', $present);
+    $exports["data"] = result($hindi, $urdu, $history, $geography, $political_science, $economics, $username, $dob, $UID, $rollcode, $rollno, $total, $division, $present);
   } else {
     $exports["id"] = "#Rollno";
     $exports["msg"] = "Rollno does not exists!";

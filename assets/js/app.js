@@ -20,12 +20,22 @@ function enableHits() {
 function questionLoader(data) {
   $.ajax({
     url: '/assets/server/question_loader.php',
+    beforeSend: function() {
+        data && $(".container").html("<div class=\"loader\">Loading please wait...</div>");
+    },
     data: data || {},
     type: 'post',
     dataType: "json",
     success: function(res) {
+      if (res.type && res.html) {
+        $(".container").html(res.html);
+        return;
+      }
       if (res.question) {
         $(".container").html(res.question);
+        var h1 = $(".container h1").text();
+        var isUrdu = /(urdu)/.test(h1);
+        isUrdu && $(".container .questions").attr("dir", "rtl").addClass("rtl");
         enableHits();
       }
       if (res.timer) {
@@ -33,6 +43,7 @@ function questionLoader(data) {
           var date = new Date();
   
           var hour = date.getHours();
+          hour = hour > 12 ? hour - 12 : hour;
           hour = hour < 10 ? "0" + hour : hour;
           var minute = date.getMinutes();
           minute = minute < 10 ? "0" + minute : minute;
@@ -41,7 +52,14 @@ function questionLoader(data) {
           var time = `${hour}:${minute}:${sec}`;
 
           if (!res.question) {
-            $(".container").html(`<div style="text-align:center;"><h2>START ON: ${res.timer} – ${time}</></h2></div>`);
+            $(".container").html(`<div class="utimer"><h2>START ON: ${time} – ${res.timer}</></h2></div>`);
+          }
+
+          if (res.question && res.timer) {
+            $(".timers").html(`${time} – ${res.timer}`);
+            if (time==res.timer) {
+              window.location.reload();
+            }
           }
   
           if (time==res.timer) {

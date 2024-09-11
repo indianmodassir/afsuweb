@@ -115,7 +115,7 @@ form input[type="text"], form select, textarea, .field input[type="time"], .fiel
 }
 .field input[type="text"], .field button, .field input[type="time"], .field input[type="number"], .field select, textarea {
   border-radius: 2px;
-  height: 30px;
+  min-height: 33px;
   outline: none;
   border: none;
   border-bottom: 1px solid #ccc;
@@ -194,4 +194,46 @@ table td {
 }
 .border {
   border: 1px solid #cccaca;
+}
+li.mrg-0.border {
+    flex-grow: 1;
+}
+@media only screen and (max-width: 500px) {
+    .content {
+        flex-direction: column;
+    }
+    .leftnav {
+        height: initial;
+        flex-direction: row;
+        width: 100%;
+        align-items: center;
+        max-width: 100%;
+    }
+    .leftnav ul li {
+        margin: 0px;
+        font-size: 13px;
+        text-align: center;
+    }
+    .leftnav ul {
+        display: flex;
+        column-gap: 5px;
+    }
+    .leftnav ul li span {
+        display: none;
+    }
+    .leftnav .prefix {
+        gap: 6px;
+        padding: 8px 11px;
+    }
+    .leftnav .prefix .pro {
+        width: 40px;
+        height: 40px;
+    }
+    .leftnav strong {
+        font-size: 13px;
+    }
+
+    input[type="text"], input[type="number"], input[type="date"], input[type="password"], input[type="time"], select, button {
+        min-height: 40px!important;
+    }
 }

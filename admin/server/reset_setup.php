@@ -19,6 +19,7 @@ if (!isset($_POST["reset"])) {
 
 header("Content-Type: application/json");
 
+$Asot->reset_marks();
 $Asot->reset_previous_setup($exports);
 die(json_encode($exports));
 ?>

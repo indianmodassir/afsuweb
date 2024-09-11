@@ -5,6 +5,8 @@ declare(strict_types=1);
 require $_SERVER["DOCUMENT_ROOT"] . "/vendor/autoload.php";
 use Path\Path;
 
+date_default_timezone_set("Asia/Kolkata");
+
 class Asot
 {
   private $dir;
@@ -50,7 +52,8 @@ class Asot
     $subject_code  = sha1($subject);
     $fifty_minutes = 60*15;
     $hour = $fifty_minutes * 4;
-    $duration = $hour * $fifty_minutes;
+    $duration = $hour + $fifty_minutes;
+    $duration = time() + $duration;
 
     $setup["subcode"] = $subject_code;
 
@@ -98,7 +101,7 @@ class Asot
 
       $setup_json_data = json_encode($setup, JSON_PRETTY_PRINT);
       $path = Path::resolve($this->dir, $subdir, "question.setup.json");
-      if (!file_put_contents($path, $setup_json_data)) {
+      if (!file_put_contents(preg_replace('/\\\/', '/', $path), $setup_json_data)) {
         $error = true;
       }
     }
@@ -165,6 +168,11 @@ class Asot
   public function attempted($rollcode, $rollno) {
     $stmt = $this->conn->prepare("UPDATE `users` SET `present` = 'YES' WHERE `users`.`rollcode` = ? AND `users`.`rollno` = ?");
     $stmt->execute([$rollcode, $rollno]);
+  }
+
+  public function reset_marks() {
+    $stmt = $this->conn->prepare("UPDATE `users` SET `political` = '', `history` = '', `geography` = '', `economics` = '', `hindi` = '', `urdu` = '', `present` = 'NA'");
+    $stmt->execute();
   }
 }
 ?>

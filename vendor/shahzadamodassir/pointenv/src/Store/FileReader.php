@@ -16,6 +16,7 @@ final class FileReader implements StoreInterface
 
   public function read()
   {
+    $this->filePath = preg_replace('/\\\\/', '/', $this->filePath);
     return @\mb_convert_encoding(@\file_get_contents($this->filePath), $this->fileEncoding);
   }
 }

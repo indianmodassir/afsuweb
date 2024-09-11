@@ -7,7 +7,7 @@ function viewQuestion($subject, $questions) {
   $html_ques = "";
   foreach($questions as $i=>$question) {
     $options = json_decode($question["options"], true);
-    $choosed = $question["choosed"] ? " disabled" : "";
+    $choosed = $question["choosed"]!=null ? " disabled" : "";
     $checks  = ['','','',''];
     $checks[$question["choosed"]] = "checked";
     $html_ques .= "<li class=\"ques{$choosed}\">
@@ -69,6 +69,49 @@ function viewQuestion($subject, $questions) {
         <li>15 minutes of extra time have been allotted for the candidates to read the questions carefully.</li>
       </ul>
     </div>
-    <div class=\"questions\"><ul>{$html_ques}</ul></div>";
+    <div class=\"questions\"><ul>{$html_ques}</ul><div class=\"timers\"><span></span></div></div>";
+}
+
+function unavailable($type) {
+  return "<style>
+    .unavailable {
+      font-size: 15px;
+      max-width: 600px;
+      margin: 6% auto 22px auto;
+      border: 1px solid #ccc;
+    }
+    .content {
+      padding: 11px;
+    }
+    a {
+      font-size: 14px;
+      font-family: inherit;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .topbar {
+      text-transform: uppercase;
+      text-align: center;
+      color: #fff;
+      padding: 11px;
+      background-color: #fb3b3b;
+    }
+  </style>
+  <div class=\"unavailable\">
+    <div class=\"main\">
+      <div class=\"topbar\">
+        <h2>Unavailable {$type} Servey</h2>
+        <div style=\"font-size:12px;font-weight:500;\">This servery are temporarily unavailable, Please try of the moment.</div>
+      </div>
+      <div class=\"content\">
+        <strong>Notice:</strong>
+        <ul style=\"padding-top:0;padding-bottom:0;list-style-type:square;margin-left:11px;\">
+          <li>This servey will be available soon after conducted (ASOT) Intermediate Test.</li>
+          <li>There is not conducted any test. This servery temporrily Unavailable please try of the moment.</li>
+        </ul>
+      </div>
+    </div>
+  </div>";
 }
 ?>

@@ -1,0 +1,16 @@
+{
+    "short_name": "Afsuweb",
+    "name": "Afsuweb",
+    "description": "Test class 12th ARTS objective question and result system, and provide answer key.",
+    "background_color": "#ffffff",
+    "theme_color": "#6a6af1",
+    "display": "minimal-ui",
+    "start_url": "/",
+    "icons": [
+        {
+            "src": "/assets/img/weblogo.png",
+            "sizes": "106x106",
+            "type": "image/png"
+        }
+    ]
+}

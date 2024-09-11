@@ -31,6 +31,9 @@ if ($_GET['rel']!='tab') {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="Shahzada Modassir"/>
 <title>ASOT – Admin Panel</title>
+<link rel="shortcut icon" href="/assets/img/weblogo.png" type="image/x-icon">
+<link rel="apple-touch-icon" href="/assets/img/weblogo.png">
+<meta name="theme-color" content="#6a6af1"/>
 <link rel="stylesheet" href="css/app.css">
 <script src="/library/jqrony-min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/layout-resizer/lib/layout-resizer.js"></script>
@@ -47,9 +50,9 @@ if ($_GET['rel']!='tab') {
 </div>
 <div class="">
 <ul>
-<li><a href="./">ASOT Question Setup</a></li>
-<li><a href="announcement">ASOT Announcement</a></li>
-<li><a href="insert">ASOT Insert Question</a></li>
+<li><a href="./"><span>ASOT</span> Question Setup</a></li>
+<li><a href="announcement"><span>ASOT</span> Announcement</a></li>
+<li><a href="insert"><span>ASOT</span> Insert Question</a></li>
 </ul>
 </div>
 </div>

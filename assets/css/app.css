@@ -297,3 +297,38 @@ button:hover {
   touch-action: none;
   pointer-events: none;
 }
+.timers {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  margin: 18px 11px;
+}
+.utimer {
+  padding: 8% 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+.rtl li.ques::after {
+    right: initial!important;
+    left: 11px;
+}
+.rtl .timers {
+    left: 0;
+    right:initial;
+}
+.rtl .opts li .radio {
+    margin-right: -30px;
+    margin-left: initial!important;
+}
+.container .loader {
+    text-align: center;
+    margin: 22% 0 0 0;
+}
+@media only screen and (max-width: 500px) {
+    .leftbar strong {
+        display: none;
+    }
+    input[type="text"], input[type="number"], input[type="date"], input[type="password"], input[type="time"], select, button {
+        min-height: 40px!important;
+    }
+}

@@ -20,6 +20,16 @@ isLogged($conn, function($conn) use ($dir) {
   $Asot = new Asot($conn);
   $user_info = $Asot->get_active_user();
   $path = Path::resolve($dir, "data", "AFSU_".$user_info["rollcode"].$user_info["rollno"], "question.setup.json");
+  $path = preg_replace('/\\\/', '/', $path);
+
+  session_start();
+
+  if (!isset($_SESSION["running"])) {
+    die(json_encode([
+      "type" => "error",
+      "html" => unavailable("ASOT")
+    ]));
+  }
 
 
   $data = file_get_contents($path);
@@ -46,7 +56,7 @@ isLogged($conn, function($conn) use ($dir) {
   }
 
   $questions = json_encode($json, JSON_PRETTY_PRINT);
-  if ($isSuccess && file_put_contents($path, $questions)) {
+  if ($isSuccess && file_put_contents(preg_replace('/[\\\]/', '/', $path), $questions)) {
     die(json_encode(["status"=>"success"]));
   }
 });

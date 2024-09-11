@@ -216,11 +216,14 @@ class Path
     $matched = @\end($matches);
 
     // Re-matches exact [DRIVE] from $matches expression
-    @\preg_match(self::RDRIVE, $matched, $matches);
+    @\preg_match(self::RDRIVE, $matched ? $matched : "", $matches);
     $matched       = @\end($matches);
+    $matched       = $matched ? $matched : "";
 
     // Remove matched [DRIVE] and Update matched path value a specific [$index]
-    $paths[$index] = @\substr($paths[$index], @\strlen($matched));
+    if ($matched) {
+        $paths[$index] = @\substr($paths[$index], @\strlen($matched));
+    }
 
     return $matched;
   }

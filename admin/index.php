@@ -26,23 +26,23 @@ for($i=1; $i <= $max; $i++) {
 ?>
 <div class="form-container">
   <ul style="display:flex;padding:2px;column-gap:11px;max-width:500px;margin-bottom:18px;">
-    <li class="mrg-0 border">LL – Hindi (<?=$t_hindi;?>)</li>
-    <li class="mrg-0 border">MB – Urdu (<?=$t_urdu;?>)</li>
-    <li class="mrg-0 border">History (<?=$t_history;?>)</li>
-    <li class="mrg-0 border">Geography (<?=$t_geography;?>)</li>
-    <li class="mrg-0 border">Political Science (<?=$t_political;?>)</li>
-    <li class="mrg-0 border">Economics (<?=$t_economics;?>)</li>
+    <li class="mrg-0 border">LL – Hin (<?=$t_hindi;?>)</li>
+    <li class="mrg-0 border">MB – Urd (<?=$t_urdu;?>)</li>
+    <li class="mrg-0 border">His (<?=$t_history;?>)</li>
+    <li class="mrg-0 border">Geo (<?=$t_geography;?>)</li>
+    <li class="mrg-0 border">Pol SC (<?=$t_political;?>)</li>
+    <li class="mrg-0 border">Eco (<?=$t_economics;?>)</li>
   </ul>
   <div class="status"></div>
   <form action="server/setup.php" method="post">
     <div class="field">
       <select name="subject" id="subject">
-        <option value="hindi">LL – Hindi ( हिंदी )</option>
-        <option value="urdu">MB - Urdu ( उर्दू )</option>
-        <option value="geography">Geography ( भूगोल )</option>
-        <option value="history">History ( इतिहास )</option>
-        <option value="economics">Economics ( अर्थशास्त्र )</option>
-        <option value="political_science">Political Science ( राजनीति विज्ञान )</option>
+        <option value="hindi">LL – Hindi ( हिंदी ) – <?=$t_hindi;?></option>
+        <option value="urdu">MB - Urdu ( उर्दू ) – <?=$t_urdu;?></option>
+        <option value="geography">Geography ( भूगोल ) – <?=$t_geography;?></option>
+        <option value="history">History ( इतिहास ) – <?=$t_history;?></option>
+        <option value="economics">Economics ( अर्थशास्त्र ) – <?=$t_economics;?></option>
+        <option value="political_science">Political Science ( राजनीति विज्ञान ) – <?=$t_political;?></option>
       </select>
     </div>
     <div class="field">

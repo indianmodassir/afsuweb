@@ -17,7 +17,11 @@ if (!isLogged($conn)) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Shahzadi Afsara"/>
+  <meta name="theme-color" content="#6a6af1"/>
   <title>ASOT – Annual Secondry Objective Test</title>
+  <link rel="shortcut icon" href="/assets/img/weblogo.png" type="image/x-icon">
+  <link rel="apple-touch-icon" href="/assets/img/weblogo.png">
+  <link rel="manifest" href="/manifest.json">
   <link rel="stylesheet" href="assets/css/app.css">
   <script src="/library/jqrony-min.js"></script>
   <script src="assets/js/app.js" defer></script>
