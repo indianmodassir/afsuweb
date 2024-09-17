@@ -11,7 +11,7 @@ function viewQuestion($subject, $questions) {
     $checks  = ['','','',''];
     $checks[$question["choosed"]] = "checked";
     $html_ques .= "<li class=\"ques{$choosed}\">
-          <div>{$question['question']}</div>
+          <div style=\"text-shadow:0 0 #000;\">{$question['question']}</div>
           <ul class=\"opts\">
             <li>
               <label class=\"radio\"><input class=\"opt\" type=\"radio\" name=\"opt-{$question['id']}\" hidden data-index=\"0\" value=\"{$question['id']}\" {$checks[0]}></label>

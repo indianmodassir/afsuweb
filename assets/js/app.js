@@ -43,6 +43,7 @@ function questionLoader(data) {
           var date = new Date();
   
           var hour = date.getHours();
+          hour = hour === 0 ? 12 : hour;
           hour = hour > 12 ? hour - 12 : hour;
           hour = hour < 10 ? "0" + hour : hour;
           var minute = date.getMinutes();

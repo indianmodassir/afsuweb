@@ -198,6 +198,9 @@ table td {
 li.mrg-0.border {
     flex-grow: 1;
 }
+input[type="text"], input[type="number"], input[type="date"], input[type="password"], input[type="time"], select, button {
+    min-height: 33px!important;
+}
 @media only screen and (max-width: 500px) {
     .content {
         flex-direction: column;

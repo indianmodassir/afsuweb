@@ -53,7 +53,7 @@ if ($captcha !== $captcha_input && empty($exports)) {
 function to_words($marks, &$outputs=[]) {
   $words = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
 
-  if (sizeof($marks)===1 && $marks[0]==0) {
+  if (sizeof($marks)===1 && $marks[0]==0 && empty($outputs)) {
     return "–";
   }
   
@@ -95,6 +95,8 @@ function setDivision($subjects, $total) {
     $second = $maxvalue * 30 / $fullmark;
     $third  = $second - 1;
 
+    if ($total==0) return "0st";
+
     if ($total >= $top) {
         return "1vip";
     }
@@ -112,24 +114,45 @@ function setDivision($subjects, $total) {
 $stmt = $conn->prepare("SELECT * FROM `users` WHERE `rollcode` = ?");
 $stmt->execute([$rollcode]);
 if ($stmt->rowCount() > 0) {
-  $data              = $stmt->fetch(PDO::FETCH_ASSOC);
-  $mt_rollno         = (int) $data["rollno"];
-  $history           = $data["history"];
-  $geography         = $data["geography"];
-  $economics         = $data["economics"];
-  $political_science = $data["political"];
-  $hindi             = $data["hindi"];
-  $urdu              = $data["urdu"];
-  $dob               = preg_replace($r_dob, '$3/$2/$1', $data["dob"]);
-  $username          = $data["username"];
-  $UID               = $data["uid"];
-  $present           = $data["present"];
-  $total             = ($history + $geography + $economics + $political_science + $urdu + $hindi);
-  $division          = setDivision([$hindi, $urdu, $history, $geography, $political_science], $total);
+    $matched=false;
+    $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  foreach($records as $data) {
+    $mt_rollno = (int) $data["rollno"];
 
-  if ($mt_rollno === $rollno) {
-    $exports["data"] = result($hindi, $urdu, $history, $geography, $political_science, $economics, $username, $dob, $UID, $rollcode, $rollno, $total, $division, $present);
-  } else {
+    if ($mt_rollno == $rollno) {
+        $matched=true;
+        $history           = $data["history"];
+        $geography         = $data["geography"];
+        $economics         = $data["economics"];
+        $political_science = $data["political"];
+        $hindi             = $data["hindi"];
+        $urdu              = $data["urdu"];
+        $dob               = preg_replace($r_dob, '$3/$2/$1', $data["dob"]);
+        $username          = $data["username"];
+        $UID               = $data["uid"];
+        $present           = $data["present"];
+        $total             = ($history + $geography + $political_science + $urdu + $hindi);
+        $division          = setDivision([$hindi, $urdu, $history, $geography, $political_science], $total);
+        $exports["data"] = result(
+            $hindi,
+            $urdu,
+            $history,
+            $geography,
+            $political_science,
+            $economics,
+            $username,
+            $dob,
+            $UID,
+            $rollcode,
+            $rollno,
+            $total,
+            $division,
+            $present
+        );
+        break;
+    }
+  }
+  if (!$matched) {
     $exports["id"] = "#Rollno";
     $exports["msg"] = "Rollno does not exists!";
   }

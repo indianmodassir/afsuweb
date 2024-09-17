@@ -102,7 +102,7 @@ img {
 }
 
 .container .questions ul li {
-  margin: 16px 0;
+  margin: 16px 11px;
   padding: 0 8px;
   position: relative;
 }
@@ -110,7 +110,7 @@ img {
 .container .questions ul li.ques::after {
   content: "1";
   position: absolute;
-  right: -11px;
+  right: -22px;
   top: 0;
 }
 
@@ -310,7 +310,7 @@ button:hover {
 }
 .rtl li.ques::after {
     right: initial!important;
-    left: 11px;
+    left: -22px;
 }
 .rtl .timers {
     left: 0;
@@ -323,6 +323,9 @@ button:hover {
 .container .loader {
     text-align: center;
     margin: 22% 0 0 0;
+}
+input[type="text"], input[type="number"], input[type="date"], input[type="password"], input[type="time"], select, button {
+    min-height: 35px!important;
 }
 @media only screen and (max-width: 500px) {
     .leftbar strong {
