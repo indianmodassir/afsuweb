@@ -1,4 +1,4 @@
-# Afsuweb
+# Afsuweb Webapplication
 Test class 12th ARTS objective question and result system, and provide answer key.
 
 Check result link: [Check Result](https://afsuweb.kesug.com/result/)
