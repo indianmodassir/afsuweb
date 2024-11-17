@@ -1,2 +1,4 @@
-/vendor
-composer.lock.json
+composer.lock
+vendor
+node_modules
+vendor-bin
