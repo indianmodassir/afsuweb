@@ -2,13 +2,17 @@
 
 declare(strict_types=1);
 
-require $_SERVER["DOCUMENT_ROOT"].'/vendor/autoload.php';
-\Pointenv\Pointenv::quickLoad();
+use Dotenv\Dotenv;
 
-$DSN  = sprintf("%s:host=%s;dbname=%s;", "mysql", "sql212.infinityfree.com", "if0_37273804_asot");
+require __DIR__.'/../vendor/autoload.php';
+
+Dotenv::process(__DIR__, ['../.env', '.env'])->safeLoad();
+
+
+$DSN  = sprintf("%s:host=%s;dbname=%s;", $_ENV['DB_CONNECTION'], $_ENV['DB_HOST'], $_ENV['DB_DATABASE']);
 
 try {
-  $conn = new \PDO($DSN, "if0_37273804", "Bo8H7dFQTF5Ix");
+  $conn = new \PDO($DSN, $_ENV['DB_USERNAME'], $_ENV['DB_PASSWORD']);
 } catch(PDOException $e)
 {
   die("Database not connected!");
