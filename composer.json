@@ -1,0 +1,32 @@
+{
+  "name": "modassir/afsuweb",
+  "description": "Test class 12th ARTS objective question and result system, and provide answer key.",
+  "type": "project",
+  "license": "MIT",
+  "keywords": ["asot", "afsuweb", "moc-test"],
+  "homepage": "https://github.com/shahzadamodassir",
+  "require": {},
+  "require-dev": {},
+  "authors": [
+    {
+      "name": "Shahzada Modassir",
+      "email": "shahzadamodassir@gmail.com",
+      "homepage": "https://github.com/shahzadamodassir"
+    }
+  ],
+  "funding": [
+    {
+      "type": "Github",
+      "url": "https://github.com/shahzadamodassir"
+    },
+    {
+      "type": "Patreon",
+      "url": "https://patreon.com/shahzadamodassir"
+    },
+    {
+      "type": "Opencollective",
+      "url": "https://opencollective.com/shahzadamodassir"
+    }
+  ],
+  "minimum-stability": "stable"
+}
