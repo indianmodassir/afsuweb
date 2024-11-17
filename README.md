@@ -15,7 +15,7 @@ Test class 12th ARTS objective question test and result system, and provide answ
 Installation is super-easy via [Composer](https://getcomposer.org)
 
 ```bash
-composer require shahzadamodassir/afsuweb
+composer create-project modassir/afsuweb
 ```
 
 or add it by hand to your `composer.json` file.
